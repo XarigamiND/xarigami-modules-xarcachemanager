@@ -1,0 +1,109 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<xar:comment>Common Cache Statistics menu</xar:comment>
+<xar:style scope="module" module="base" file="tabs" />
+    <xar:if condition="empty($tab)">
+        <xar:set name="tab">'none'</xar:set>
+    </xar:if>
+    <div>
+        <ul class="xar-tabs">
+            <li class="xar-tabs-label" title="#xarML('Choose an action to perform')#">
+                <xar:mlstring>Statistics:</xar:mlstring>
+            </li>
+
+            <xar:if condition="empty($tab) or $tab eq 'overview'">
+                <li class="xar-tab-active">
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'overview'))#">
+                        <xar:mlstring>Summary</xar:mlstring>
+                    </a>
+                </li>
+            <xar:else />
+                <li class="xar-tab">
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'overview'))#">
+                        <xar:mlstring>Summary</xar:mlstring>
+                    </a>
+                </li>
+            </xar:if>
+            <xar:if condition="$tab eq 'page'">
+                <li class="xar-tab-active">
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'page'))#">
+                        <xar:mlstring>Pages</xar:mlstring>
+                    </a>
+                </li>
+            <xar:else />
+                <li class="xar-tab">
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'page'))#" >
+                        <xar:mlstring>Pages</xar:mlstring>
+                    </a>
+                </li>
+            </xar:if>
+            <xar:if condition="$tab eq 'block'">
+                <li class="xar-tab-active">
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'block'))#" >
+                        <xar:mlstring>Blocks</xar:mlstring>
+                    </a>
+                </li>
+            <xar:else />
+               <li class="xar-tab">
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'block'))#">
+                        <xar:mlstring>Blocks</xar:mlstring>
+                    </a>
+                </li>
+            </xar:if>
+            <xar:if condition="$tab eq 'module'">
+                <li class="xar-tab-active">
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'module'))#">
+                        <xar:mlstring>Modules</xar:mlstring>
+                    </a>
+                </li>
+            <xar:else />
+                <li class="xar-tab">
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'module'))#">
+                        <xar:mlstring>Modules</xar:mlstring>
+                    </a>
+                </li>
+            </xar:if>
+                 <!--
+            <xar:if condition="$tab eq 'object'">
+                <li class="xar-tab-active">
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'object'))#" >
+                        <xar:mlstring>Objects</xar:mlstring>
+                    </a>
+                </li>
+            <xar:else />
+                <li>
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'object'))#" >
+                        <xar:mlstring>Objects</xar:mlstring>
+                    </a>
+                </li>
+            </xar:if>
+
+            <xar:if condition="$tab eq 'query'">
+                <li class="xar-tab-active">
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'query'))#">
+                        <xar:mlstring>Queries</xar:mlstring>
+                    </a>
+                </li>
+            <xar:else />
+                <li class="xar-tab">
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'query'))#" >
+                        <xar:mlstring>Queries</xar:mlstring>
+                    </a>
+                </li>
+            </xar:if>
+            -->
+            <xar:if condition="$tab eq 'autocache'">
+                <li class="xar-tab-active">
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'autocache'))#" >
+                        <xar:mlstring>Auto-Cache</xar:mlstring>
+                    </a>
+                </li>
+            <xar:else />
+                <li class="xar-tab">
+                    <a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'autocache'))#">
+                        <xar:mlstring>Auto-Cache</xar:mlstring>
+                    </a>
+                </li>
+            </xar:if>
+        </ul>
+    </div>
+

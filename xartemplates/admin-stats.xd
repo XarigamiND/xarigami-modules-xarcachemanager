@@ -1,0 +1,52 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+            <xar:template type="module" module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1><xar:mlstring>Statistics</xar:mlstring></h1>
+        <div class="xar-mod-content">
+
+          <xar:if condition="$tab eq 'page'">
+            <h2>Page Cache Statistics</h2>
+          <xar:elseif condition="$tab eq 'block'"/>
+            <h2>Block Cache Statistics</h2>
+          <xar:elseif condition="$tab eq 'module'"/>
+            <h2>Module Cache Statistics</h2>
+          <xar:elseif condition="$tab eq 'object'"/>
+            <h2>Object Cache Statistics</h2>
+          <xar:elseif condition="$tab eq 'variable'"/>
+            <h2>Variable Cache Statistics</h2>
+          <xar:elseif condition="$tab eq 'autocache'"/>
+            <h2>Auto-Cache Statistics</h2>
+          <xar:else/>
+            <h2>Cache Statistics</h2>
+          </xar:if>
+
+            <xar:template type="module" file="stats-menu" module="xarcachemanager" />
+            <!-- Begin Overview Statistics -->
+            <xar:if condition="empty($tab) or $tab eq 'overview'">
+                <xar:template type="module" file="stats-overview" module="xarcachemanager" />
+
+            <!--  Begin Page / Block / Module / Object Statistics -->
+            <xar:elseif condition="$tab eq 'page' or $tab eq 'block' or $tab eq 'module' or $tab eq 'object' or $tab eq 'variable'" />
+                <xar:template type="module" file="stats-details" module="xarcachemanager" />
+
+            <!--  Begin Query Statistics
+            <xar:elseif condition="$tab eq 'query'" />
+
+                <h3><xar:mlstring>Query Cache Statistics</xar:mlstring></h3>
+                <xar:mlstring>to be defined</xar:mlstring>
+             -->
+            <!--  Begin Auto-Cache Statistics -->
+            <xar:elseif condition="$tab eq 'autocache'" />
+
+                <xar:template type="module" file="stats-autocache" module="xarcachemanager" />
+
+            </xar:if>
+
+        </div>
+    </div>
+</div>

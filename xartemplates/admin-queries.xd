@@ -1,0 +1,61 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+            <xar:template type="module" module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1><xar:mlstring>Configure Query Caching</xar:mlstring></h1>
+        <div class="xar-mod-content">
+
+            <form action="#xarModURL('xarcachemanager', 'admin', 'queries')#" method="post">
+            <fieldset>
+                <legend>
+                    <xar:mlstring>
+                        Query Caching Options
+                    </xar:mlstring>
+                </legend>
+              <p class="xar-form-input-wrapper-before">
+                <xar:mlstring>Queries in the following functions could be quite expensive for large sites.
+                  Even if you don't use page or module output caching, you might consider using query caching
+                  to save the results of individual database queries here.</xar:mlstring>
+              </p>
+
+              <xar:comment>TODO: enable $dbconn-LogSQL() and retrieve expensive SQL queries</xar:comment>
+
+              <table border="0" cellpadding="4" cellspacing="0">
+                <xar:foreach in="$queries" key="$module" value="$querylist">
+                  <tr>
+                    <th>#$module#</th>
+                    <th colspan="2">&#160;</th>
+                  </tr>
+                  <xar:foreach in="$querylist" key="$query" value="$expire">
+                    <tr>
+                      <td>&#160;</td>
+                      <td><label for="expire_#$module#_#$query#">#$query#</label></td>
+                      <td>
+                        <xar:if condition="empty($expire)">
+                          <input type="text" name="expire[#$module#][#$query#]" id="expire_#$module#_#$query#" size="5" value="0" />
+                          <xar:else/>
+                          <input type="text" name="expire[#$module#][#$query#]" id="expire_#$module#_#$query#" size="5" value="#$expire#" />
+                        </xar:if>
+                      </td>
+                    </tr>
+                  </xar:foreach>
+                </xar:foreach>
+
+              </table>
+            </fieldset>
+            <div class="xar-form-footer">
+                    <input type="hidden" name="authid" value="#$authid#" />
+                    <input type="submit" name="submit" value="#xarML('Submit')#" />
+            </div>
+            </form>
+            <p class="xar-form-input-wrapper">
+              <xar:mlstring>Please note that cached query results will only be invalidated based on expiration time (for now ?).</xar:mlstring>
+            </p>
+
+        </div>
+    </div>
+</div>

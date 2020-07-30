@@ -1,0 +1,71 @@
+<!--  License: GPL http://www.gnu.org/copyleft/gpl.html  -->
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+            <xar:template type="module" module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1><xar:mlstring>View Cache Items</xar:mlstring></h1>
+        <div class="xar-mod-content">
+
+            <table class="xar-items">
+                <tr>
+                    <td colspan="2" style="font-weight:bold;">
+                        <xar:mlstring>Browsing:&#160;</xar:mlstring>#$tab# cache
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="font-weight:bold;">
+                        Cache item:&#160;
+                        #$key#
+                        [ <a href="#xarModURL('xarcachemanager','admin','flushcache',array('flushkey['.$tab.']' => $key, 'authid' => $authid, 'confirm' => 1, 'return_url' => $return_url))#">flush key</a> ]
+                        #$code#
+                        [ <a href="#xarModURL('xarcachemanager','admin','flushcache',array('flushkey['.$tab.']' => $key, 'cachecode['.$tab.']' => $code, 'authid' => $authid, 'confirm' => 1, 'return_url' => $return_url))#">delete item</a> ]
+                    </td>
+                </tr>
+                <xar:if condition="!empty($link)">
+                    <tr>
+                        <td colspan="2">
+                            <strong>Link:</strong>&#160;<a href="#xarVarPrepHTMLDisplay($link)#">#xarVarPrepHTMLDisplay($link)#</a>
+                        </td>
+                    </tr>
+                </xar:if>
+                <xar:if condition="!empty($title)">
+                    <tr>
+                        <td colspan="2">
+                            <strong>Title:</strong>&#160;<xar:set name="dummy">var_export($title,true)</xar:set>#$dummy#
+                        </td>
+                    </tr>
+                </xar:if>
+                <xar:foreach in="$styles" value="$style">
+                    <tr>
+                        <td colspan="2">
+                            <strong>Style:</strong>&#160;<xar:set name="dummy">var_export($style,true)</xar:set>#$dummy#
+                        </td>
+                    </tr>
+                </xar:foreach>
+                <xar:foreach in="$script" value="$info">
+                    <tr>
+                        <td colspan="2">
+                            <strong>Script:</strong>&#160;<xar:set name="dummy">var_export($info,true)</xar:set>#$dummy#
+                        </td>
+                    </tr>
+                </xar:foreach>
+                <xar:foreach in="$lines" key="$key" value="$line">
+                <tr>
+                    <td class="xar-align-left" valign="top" style="font-size:small; color:red">
+                        #$key#:&#160;&#160;
+                    </td>
+                    <td class="xar-align-left" valign="top" style="font-size:small">
+                       #xarVarPrepForDisplay($line)#
+                    </td>
+                </tr>
+                </xar:foreach>
+            </table>
+            <xar:if condition="empty($lines)">
+                This item is not in cache anymore
+            </xar:if>
+        </div>
+    </div>
+</div>
