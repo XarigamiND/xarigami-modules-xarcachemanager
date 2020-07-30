@@ -30,9 +30,6 @@ function xarcachemanager_adminapi_getstoragetypes()
     $storagetypes['apc']          = array('name'    => 'apc',
                                           'label'   => 'Alternative PHP Cache (APC)',
                                           'enabled' => function_exists('apc_fetch') ? true : false);
-    $storagetypes['eaccelerator'] = array('name'    => 'eaccelerator',
-                                          'label'   => 'eAccelerator',
-                                          'enabled' => function_exists('eaccelerator_get') ? true : false);
     $storagetypes['memcached']    = array('name'    => 'memcached',
                                           'label'   => 'Memcached Server(s)',
                                           'enabled' => class_exists('Memcache') ? true : false);
