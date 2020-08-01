@@ -31,7 +31,7 @@ function xarcachemanager_adminapi_updatehook($args)
     if (!isset($extrainfo) || !is_array($extrainfo)) {
         $extrainfo = array();
     }
-echo '<pre>';print_r($args);echo '</pre>';
+
     // When called via hooks, modname wil be empty, but we get it from the
     // extrainfo or the current module
     if (empty($modname)) {
