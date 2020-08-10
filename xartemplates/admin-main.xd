@@ -81,14 +81,10 @@
                 <h3>
                     <xar:mlstring>Further Information</xar:mlstring>
                 </h3>
-                <p>
-                   <xar:mlstring>Further information on the xarcachemanager module can be found at</xar:mlstring>
-                </p>
                 <ul>
-                    <li><xar:mlstring>xarcachemanager Extension page at</xar:mlstring> <a title="#xarML('xarcachemanager Module - Xaraya Extension 1652')#" href="http://www.xaraya.com/index.php/release/1652.html">Xaraya Extension and Releases</a>.
-                        <xar:mlstring>Click on Version History tab at the bottom to get the latest release information.</xar:mlstring>
-                    </li>
-                    <li><xar:mlstring>Related tutorials and documentation on xarcachemanager found at</xar:mlstring> <a href="http://www.xaraya.com/index.php/keywords/xarcachemanager/" title="#xarML('Related documentation on xarcachemanager')#"><xar:mlstring>Xaraya Documentation.</xar:mlstring></a>
+                    <li><xar:mlstring>XarCacheManager project page</xar:mlstring> <xar:mlstring>(there is no project page yet)</xar:mlstring></li>
+                    <li><a href="http://xarigami.org/contrails/displayproject/xcm"><xar:mlstring>Xarigami XarCacheManager issue tracker</xar:mlstring></a></li>
+                    <li><a href="http://xarigami.org/keywords/cache"><xar:mlstring>Caching related articles</xar:mlstring></a></li>
                     </li>
                 </ul>
                 <p class="xar-sub">
