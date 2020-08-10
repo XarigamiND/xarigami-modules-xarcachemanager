@@ -61,14 +61,8 @@ function xarcachemanager_adminapi_deletehook($args)
             $systemPrefix = xarDB::getPrefix();
             $blocksettings = $systemPrefix . '_cache_blocks';
             $dbconn =xarDBGetConn();
-            $query = "SELECT xar_nocache
-                        FROM $blocksettings WHERE xar_bid = $objectid ";
-            $result = $dbconn->Execute($query);
-            if (count($result) > 0) {
-                $query = "DELETE FROM
-                         $blocksettings WHERE xar_bid = $objectid ";
-                $result = $dbconn->Execute($query);
-            }
+            $query = "DELETE FROM $blocksettings WHERE xar_bid = $objectid ";
+            $dbconn->Execute($query);
 
             // blocks could be anywhere, we're not smart enough not know exactly where yet
             // so just flush all pages
