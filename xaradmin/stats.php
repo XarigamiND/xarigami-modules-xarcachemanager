@@ -326,19 +326,6 @@ function xarcachemanager_admin_stats($args)
                 }
             }
 
-        // Note: the query cache is actually handled by ADODB
-            // get query cache stats
-            $data['settings']['QueryCacheStorage'] = 'filesystem';
-            $data['querycache'] = array('size'  => 0,
-                                        'items' => 0);
-            if ($data['QueryCachingEnabled'] && !empty($data['settings']['QueryCacheStorage'])) {
-                $querystorage = xarCache::getStorage(array('storage'  => $data['settings']['QueryCacheStorage'],
-                                                           'type'     => 'database',
-                                                           'cachedir' => sys::varpath() . '/cache'));
-                $data['querycache']['size'] = $querystorage->getCacheSize(true);
-                $data['querycache']['items'] = $querystorage->getCacheItems() - 1; // index.html
-            }
-
             // get auto-cache stats
             $data['settings']['AutoCacheLogFile'] = $outputCacheDir . '/autocache.log';
             if ($data['AutoCachingEnabled'] && !empty($data['settings']['AutoCacheLogFile'])) {

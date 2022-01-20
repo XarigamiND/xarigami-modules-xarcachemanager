@@ -382,49 +382,6 @@
     <xar:mlstring>Disabled</xar:mlstring>
 </xar:if>
 
-<!-- Not supported with Creole
-
-
-        <h3><xar:mlstring>Query Cache</xar:mlstring></h3>
-
-        <xar:if condition="!empty($QueryCachingEnabled)">
-        <table class="xar-norm">
-            <tr>
-                <th>
-                    <xar:mlstring>Storage</xar:mlstring>
-                </th>
-                <td>
-                    <xar:if condition="!empty($settings['QueryCacheStorage'])">
-                        #$settings['QueryCacheStorage']#
-                    </xar:if>
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    <xar:mlstring>Items</xar:mlstring>
-                </th>
-                <td>
-                    <xar:if condition="!empty($querycache['items'])">
-                        #$querycache['items']#
-                    </xar:if>
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    <xar:mlstring>Size</xar:mlstring>
-                </th>
-                <td>
-                    <xar:if condition="!empty($querycache['size'])">
-                        #$querycache['size']#
-                    </xar:if>
-                </td>
-            </tr>
-        </table>
-        <xar:else/>
-            Disabled
-        </xar:if>
-
--->
 <!--
 
         <h3><a href="#xarModURL('xarcachemanager', 'admin', 'stats', array('tab' => 'variable'))#">Variable Cache</a></h3>
